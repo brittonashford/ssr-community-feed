@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Head from 'next/head';
 
 const HeaderWrapper = styled.div`
   background-color: orange;
@@ -16,7 +17,7 @@ const Title = styled.h1`
   pointer-events: none;
 `;
 
-function Header() {
+export default function Header() {
 
     return (
         <>
