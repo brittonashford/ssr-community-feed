@@ -1,5 +1,5 @@
 {
-  "name": "ssr-community-feed",
+  "name": "chapter-4",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.2.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "styled-components": "^5.3.5"
+    "next": "12.1.5",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "styled-components": "5.3.5"
   },
   "devDependencies": {
-    "eslint": "8.19.0",
-    "eslint-config-next": "12.2.0"
+    "eslint": "8.13.0",
+    "eslint-config-next": "12.1.5"
   }
 }

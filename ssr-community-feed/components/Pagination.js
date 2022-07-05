@@ -20,16 +20,16 @@ const PaginationLink = styled.a`
 `;
 
 function Pagination({ currentPage, hasMore }) {
-    return (
-        <PaginationContainer>
-            <Link href={`?page=${parseInt(currentPage) - 1}`}>
-                <PaginationLink disabled={currentPage <= 1}>Previous</PaginationLink>
-            </Link>
-            <Link href={`?page=${parseInt(currentPage) + 1}`}>
-                <PaginationLink disabled={!hasMore}>Next</PaginationLink>
-            </Link>
-        </PaginationContainer>
-    );
+  return (
+    <PaginationContainer>
+      <Link href={`?page=${parseInt(currentPage) - 1}`}>
+        <PaginationLink disabled={currentPage <= 1}>Previous</PaginationLink>
+      </Link>
+      <Link href={`?page=${parseInt(currentPage) + 1}`}>
+        <PaginationLink disabled={!hasMore}>Next</PaginationLink>
+      </Link>
+    </PaginationContainer>
+  );
 }
 
 export default Pagination;

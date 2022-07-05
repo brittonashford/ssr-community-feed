@@ -17,17 +17,21 @@ const Title = styled.h1`
   pointer-events: none;
 `;
 
-export default function Header() {
-
-    return (
-        <>
-            <Head>
-                <title>Community Feed</title>
-                <meta   
-                    name='description'
-                    content='This is a community feed project built with Next and React'
-                />
-            </Head>
-        </>
-    )
+function Header() {
+  return (
+    <>
+      <Head>
+        <title>Community Feed</title>
+        <meta
+          name='description'
+          content='This is a Community Feed project build with React'
+        />
+      </Head>
+      <HeaderWrapper>
+        <Title>Community Feed</Title>
+      </HeaderWrapper>
+    </>
+  );
 }
+
+export default Header;

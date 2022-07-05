@@ -5,53 +5,55 @@ import styled from 'styled-components';
 import Card from '../../components/Card';
 
 const QuestionDetailContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    margin: 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 5%;
 `;
 
-export default function QuestionDetail() {
-    const router = useRouter();
-    const { id } = router.query;
+function QuestionDetail() {
+  const router = useRouter();
+  const { id } = router.query;
 
-    const [loading, setLoading] = useState(false);
-    const [question, setQuestion] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [question, setQuestion] = useState({});
 
-    useEffect(() => {
-        async function fetchData() {
-            const data = await fetch( 
-                `https://api.stackexchange.com/2.2/questions/${id}?site=stackoverflow`
-            );
+  useEffect(() => {
+    async function fetchData() {
+      const data = await fetch(
+        `https://api.stackexchange.com/2.2/questions/${id}?site=stackoverflow`,
+      );
 
-            const result = await data.json();
+      const result = await data.json();
 
-            if (result) {
-                setQuestion(result.items[0]);
-                setLoading(false);
-            }
-        }
+      if (result) {
+        setQuestion(result.items[0]);
+        setLoading(false);
+      }
+    }
 
-        id && fetchData();
-    }, [id]);
+    id && fetchData();
+  }, [id]);
 
-    return (
-        <QuestionDetailContainer>
-            {loading ? (
-                <span>Loading...</span>
-            ) : (
-                <>
-                    <Head>
-                        <title>{question.title}</title>
-                    </Head>
+  return (
+    <QuestionDetailContainer>
+      {loading ? (
+        <span>Loading...</span>
+      ) : (
+        <>
+          <Head>
+            <title>{question.title}</title>
+          </Head>
 
-                    <Card
-                        title={question.title}
-                        views={question.view_count}
-                        answers={question.answers_count}
-                    />
-                </>
-            )}
-        </QuestionDetailContainer>
-    );
+          <Card
+            title={question.title}
+            views={question.view_count}
+            answers={question.answers_count}
+          />
+        </>
+      )}
+    </QuestionDetailContainer>
+  );
 }
+
+export default QuestionDetail;
